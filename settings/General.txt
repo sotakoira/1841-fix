@@ -1,0 +1,166 @@
+//Enable DEBUG
+DEBUG = false
+
+//Enable the overlay, menu
+//Any settings/scripts reliant on drawing on the overlay won't enable
+MENU = true
+
+//Alpha of the menu
+MENU_ALPHA = 1.0
+
+//VK Key Code (http://cherrytree.at/misc/vk.htm), toggles visibility of the menu on the overlay
+//Default key is INSERT
+MENU_KEY = 45
+
+//Show tooltips
+MENU_TOOLTIPS = true
+
+//Default locale
+CURRENT_LOCALE = locale_en_US
+
+//FOV Type : DISTANCE or STATIC
+FOV_TYPE = STATIC
+
+//If the menu has a blur behind it
+GAUSSIAN_BLUR = false
+
+//The title of the app to draw the overlay on
+//Ex "Untitled - Notepad"
+MENU_APP = "Counter-Strike: Global Offensive"
+
+//Appless settings
+APPLESS = false
+APPLESS_WIDTH = 630
+APPLESS_HEIGHT = 600
+APPLESS_X = 960
+APPLESS_Y = 100
+
+//Menu stays focused even when csgo isn't
+MENU_STAY_FOCUSED = false
+
+//Whether post processing is disabled or not
+DISABLE_POST_PROCESSING = false
+
+//The default overlay width and height, backup if width and height cannot be grabbed from MENU_APP
+OVERLAY_WIDTH = 1920
+OVERLAY_HEIGHT = 1080
+
+//VK Key Code (http://cherrytree.at/misc/vk.htm), toggles aim on or off
+//Default key is F3
+AIM_TOGGLE_KEY = -1
+
+//Enable fast stop
+//Will attempt to slow your velocity faster than normal if movement keys aren't being pressed
+FAST_STOP = false
+
+//Enable head walk
+HEAD_WALK = false
+
+//Enable last second bomb defuse
+LS_BOMB = false
+
+//Enable door spam
+D_SPAM = false
+
+//Door spam key
+D_SPAM_KEY = -1
+
+//Enable weapon spam
+W_SPAM = false
+
+//weapon spam key
+W_SPAM_KEY = -1
+
+//Global enable aim
+ENABLE_AIM = false
+
+//Hold target - If the aimbot should lock on a target as long as the aim key is pressed and the target is alive
+HOLD_TARGET = false
+
+//Swap delay if target becomes invalid, in ms
+AIM_TARGET_SWAP_DELAY = 150
+
+//Global enable override
+ENABLE_OVERRIDE = false
+
+//Enable aimbot when aim key is pressed
+ACTIVATE_FROM_AIM_KEY = true
+
+//Enables aimbot against teammates
+TEAMMATES_ARE_ENEMIES = false
+
+//VK Key Code (http://cherrytree.at/misc/vk.htm), enables aimbot when held
+//Default key is MOUSE_4
+FORCE_AIM_KEY = -1
+
+//Enables specific bone when held
+FORCE_AIM_BONE_KEY = -1
+
+//Always force aim if within FOV
+FORCE_AIM_ALWAYS = false
+
+//If force aim works through walls (no vis check)
+FORCE_AIM_THROUGH_WALLS = false
+
+//MS Delay between when aimbot paths are recalculated
+AIM_DURATION = 1
+
+//Bone IDs of bones used
+HEAD_BONE = 8
+NECK_BONE = 7
+CHEST_BONE = 6
+PELVIS_BONE = 0
+STOMACH_BONE = 5
+NEAREST_BONE = -1
+RANDOM_BONE = -4
+
+//Temp variables, don't edit
+PERFECT_AIM = false
+PERFECT_AIM_CHANCE = 1
+PERFECT_AIM_FOV = 1.0
+AIM_BONE = -1
+FORCE_AIM_BONE = -1
+AIM_SPEED = 10
+AIM_FOV = 0.5
+FACTOR_RECOIL = false
+ENABLE_FLAT_AIM = false
+ENABLE_PATH_AIM = true
+ENABLE_SCOPED_ONLY = false
+AIM_AFTER_SHOTS = 0
+AIM_ADVANCED = false
+AIM_RCS_X = 0.05
+AIM_RCS_Y = 0.05
+AIM_RCS_VARIATION = 0.0
+AIM_SPEED_DIVISOR = 1
+AIM_RANDOM_X_VARIATION = 0
+AIM_RANDOM_Y_VARIATION = 0
+AIM_VARIATION_DEADZONE = 0
+KEYBINDS = false
+KEYBINDS_X = 400.0
+KEYBINDS_Y = 400.0
+KEYBINDS_ALPHA = 1.0
+AIM_ONLY_ON_SHOT = false
+
+TRIGGER_USE_FOV = false
+TRIGGER_USE_INCROSS = false
+TRIGGER_FOV = 2.0
+TRIGGER_USE_AIMBOT = false
+TRIGGER_USE_BACKTRACK = false
+
+//OverrideWepShit
+WEP_TRIGGER = false
+WEP_TRIGGER_AIMBOT = false
+WEP_TRIGGER_INCROSS = false
+WEP_TRIGGER_INFOV = false
+WEP_TRIGGER_BACKTRACK = false
+WEP_TRIGGER_FOV = 0.0
+WEP_TRIGGER_INIT_DELAY = 0
+WEP_TRIGGER_PER_DELAY = 0
+WEP_BACKTRACK = false
+WEP_BACKTRACK_MS = 0.0
+
+
+//Can't be edited from menu, not guaranteed to work properly
+PISTOL_AIM_AFTER_SHOTS = 0
+SHOTGUN_AIM_AFTER_SHOTS = 0
+SNIPER_AIM_AFTER_SHOTS = 0

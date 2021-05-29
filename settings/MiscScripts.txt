@@ -1,0 +1,13 @@
+//Enable automatic weapons
+//Will attempt to shoot non-automatic weapons based on auto wep delay
+GLOBAL_AUTOMATIC_WEAPONS = false
+
+//The MS delay between shooting
+GLOBAL_AUTO_WEP_DELAY = 100
+
+KILL_BIND = false
+KILL_BIND_KEY = -1
+MUSIC_KIT_SPOOFER = false
+MUSIC_KIT_ID = 11
+KILLSOUND_VOLUME = 0.1
+KILL_BIND_KEY = -1

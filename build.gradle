@@ -1,0 +1,116 @@
+import java.nio.file.Files
+import org.apache.commons.io.FileUtils
+
+buildscript {
+	ext.kotlin_version = '1.3.72'
+	ext.jnaVersion = '5.2.0'
+	ext.gdxVersion = '1.9.13'
+	ext.visuiVersion = "1.4.7"
+
+	repositories {
+		jcenter()
+	}
+
+	dependencies {
+		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+		classpath 'com.github.jengelman.gradle.plugins:shadow:4.0.2'
+		classpath "commons-io:commons-io:2.6"
+	}
+}
+
+apply plugin: "idea"
+apply plugin: "java"
+apply plugin: "kotlin"
+apply plugin: "application"
+apply plugin: "com.github.johnrengelman.shadow"
+
+group "rat.poison"
+version "1.8"
+
+mainClassName = "rat.poison.RatPoison"
+
+repositories {
+	jcenter()
+	maven { url 'https://jitpack.io' }
+	maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+}
+
+dependencies {
+	implementation group: "org.jire.arrowhead", name: "arrowhead", version: "1.3.3"
+
+	implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
+	implementation "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+	implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+	implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+	implementation "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
+	implementation "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+	implementation "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+	implementation group: 'net.java.dev.jna', name: 'jna', version: jnaVersion
+	implementation group: 'net.java.dev.jna', name: 'jna-platform', version: jnaVersion
+	implementation "com.kotcrab.vis:vis-ui:$visuiVersion"
+	implementation group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlin_version
+	implementation group: 'org.jetbrains.kotlin', name: 'kotlin-script-runtime', version: kotlin_version
+	implementation group: 'org.jetbrains.kotlin', name: 'kotlin-script-util', version: kotlin_version
+	implementation group: 'org.jetbrains.kotlin', name: 'kotlin-compiler-embeddable', version: kotlin_version
+
+	implementation group: 'commons-io', name: 'commons-io', version: 2.6
+	implementation 'com.github.ata4:ioutils:b1f26588b5'
+	implementation 'com.github.ata4:bspsrc:v1.3.24'
+}
+
+jar {
+	manifest {
+		attributes 'Main-Class': mainClassName
+	}
+}
+
+shadowJar {
+	baseName = 'RatPoison'
+	classifier = null
+}
+
+task RatPoison {
+	doLast {
+		def name = "RatPoison $version"
+
+		def dir = file("build/$name/")
+		if (dir.exists()) {
+			dir.deleteDir()
+		}
+		dir.mkdirs()
+
+		def jarName = "${name}.jar"
+		//noinspection GroovyAssignabilityCheck
+		def jar = file(new File(dir, jarName))
+		def allJar = file("build/libs/RatPoison-${version}.jar")
+		Files.copy(allJar.toPath(), jar.toPath())
+
+		//noinspection GroovyAssignabilityCheck
+		def bat = file(new File(dir, "Start ${name}.bat"))
+		Files.write(bat.toPath(), """@echo off
+		set path="%JAVA_HOME%";%path%
+		cd /d "%~dp0"
+		title $name
+		java -Xmx512m -Xms32m -XX:+UseSerialGC -jar "$jarName" 
+		pause""".getBytes())
+
+		def dirSettings = file(new File(dir, "settings"))
+		def settings = file("settings")
+		dirSettings.mkdirs()
+		FileUtils.copyDirectory(settings, dirSettings)
+
+		def dirSkin = file(new File(dir, "skin"))
+		dirSkin.mkdirs()
+		def skins = file("skin")
+		FileUtils.copyDirectory(skins, dirSkin)
+	}
+}
+
+RatPoison.dependsOn shadowJar
+RatPoison.mustRunAfter shadowJar
+
+sourceSets {
+	main.java.srcDirs += 'src/main/java'
+	main.java.srcDirs += 'src/main/kotlin'
+	main.java.srcDirs += 'settings'
+}
