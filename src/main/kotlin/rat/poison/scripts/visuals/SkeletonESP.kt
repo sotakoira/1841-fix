@@ -42,7 +42,7 @@ internal fun skeletonEsp() = App {
 				val boneOffset = csgoEXE.uint(studioModel + 0xA0)
 
 				val modelMemory: Memory by lazy {
-					Memory(21332)
+					Memory(21548)
 				}
 
 				csgoEXE.read(studioModel + boneOffset, modelMemory)
