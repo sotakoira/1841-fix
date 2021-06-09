@@ -29,7 +29,7 @@ val mainTabbedPane = TabbedPane()
     var configsTab = ConfigsTab()
     var fontsTab = FontsTab()
 
-private var uid = randInt(2, 999999)
+private var uid = randInt(2, 4999)
 
 class UIMenu : VisWindow("$TITLE $F_VERSION - [$M_VERSION $BRANCH] - $LOADED_CONFIG - UID: $uid") {
     var wantedHeight = 600F

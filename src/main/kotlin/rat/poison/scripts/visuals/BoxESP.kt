@@ -242,7 +242,7 @@ fun boxEsp() {
 			}
 
 			if (bEspName && isWeapon) {
-				addTextureOrText(assetManager, bEspUseIcons, it.type.name.replace("CWeapon", ""), "${it.type.name.replace("CWeapon", "").toLocale()}\n", bEspNamePos)
+				addTextureOrText(assetManager, bEspUseIcons, it.type.name.replace("CWeapon", ""), "${it.type.name.replace("CWeapon", "").toUpperCase().toLocale()}\n", bEspNamePos)
 			}
 
 			if (bEspFlashed && isPlayer && entityMemory.flashed()) {
@@ -250,7 +250,7 @@ fun boxEsp() {
 			}
 
 			if (bEspWeapon && isPlayer) {
-				addTextureOrText(assetManager, bEspUseIcons, ent.weapon().name, "${ent.weapon().name.toLocale()}\n", bEspWeaponPos)
+				addTextureOrText(assetManager, bEspUseIcons, ent.weapon().name, "${ent.weapon().name.toUpperCase().toLocale()}\n", bEspWeaponPos)
 			}
 
 			if (bEspKevlar && isPlayer && bEspUseIcons && !entityMemory.hasHelmet() && entityMemory.armor() > 0) {

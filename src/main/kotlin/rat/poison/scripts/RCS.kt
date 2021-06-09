@@ -5,11 +5,13 @@ import com.badlogic.gdx.math.Vector3
 import rat.poison.curSettings
 import rat.poison.game.angle
 import rat.poison.game.clientState
+import rat.poison.game.entity.bullets
 import rat.poison.game.entity.punch
 import rat.poison.game.entity.shotsFired
 import rat.poison.game.me
 import rat.poison.game.setAngle
 import rat.poison.scripts.aim.meCurWep
+import rat.poison.scripts.aim.meCurWepEnt
 import rat.poison.scripts.aim.meDead
 import rat.poison.utils.every
 import rat.poison.utils.generalUtil.strToBool
@@ -25,7 +27,7 @@ fun rcs() = every(15, inGameCheck = true) {
 	val shotsFired = me.shotsFired()
 	val p = me.punch()
 
-	val forceSet = (shotsFired == 0 && !lastAppliedRCS.isZero)
+	val forceSet = (shotsFired == 0 && !lastAppliedRCS.isZero || meCurWepEnt.bullets() <= 0)
 
 	if (forceSet || /*!finishPunch ||*/ shotsFired > 1) {
 		if (curSettings["RCS_TYPE"] == "STABLE") {
