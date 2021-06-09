@@ -15,3 +15,4 @@ Based on [RatPoison 1.8.4.1](https://github.com/RatPoison-dev/RatPoison/tree/001
   * Override dwbSendPackets offset by typing packets [value] in cmd window
   * Updated skins and music kits
   * Replaced installer with build.bat
+
