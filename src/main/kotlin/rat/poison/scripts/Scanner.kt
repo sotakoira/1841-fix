@@ -3,6 +3,7 @@ package rat.poison.scripts
 import rat.poison.SETTINGS_DIRECTORY
 import rat.poison.game.entity.*
 import rat.poison.game.forEntities
+import rat.poison.game.offsets.EngineOffsets.dwbSendPackets
 import rat.poison.game.rankName
 import rat.poison.haltProcess
 import rat.poison.scripts.visuals.disableAllEsp
@@ -30,7 +31,7 @@ fun scanner() {
         when {
             line.startsWith("help") -> {
                 if (line == "help") {
-                    println("\nAvailable commands: help [command], exit, ranks, reload, list, read [file name], write [file name] [variable name] = [value], save [default/cfgname], load [cfgname], delete [cfgname], nadehelper [nadehelpername], namechanger [name]\n")
+                    println("\nAvailable commands: help [command], exit, ranks, reload, list, read [file name], write [file name] [variable name] = [value], save [default/cfgname], load [cfgname], delete [cfgname], nadehelper [nadehelpername], namechanger [name], packets [value]\n")
                 } else {
                     when (line.split(" ".toRegex(), 2)[1]) {
                         "exit" -> println("\nCloses program and cmd\n")
@@ -43,7 +44,8 @@ fun scanner() {
                         "save" -> println("\nSave to default settings or to a config\n")
                         "load" -> println("\nLoad config\n")
                         "nadehelper" -> println("\nLoad nadehelper file\n")
-                        "namechanger" -> println("\nTemporarily change your name")
+                        "namechanger" -> println("\nTemporarily change your name\n")
+                        "packets" -> println("\nTemporarily change dwbSendPackets value")
                     }
                 }
             }
@@ -167,6 +169,17 @@ fun scanner() {
                     val name = line.trim().split(" ".toRegex(), 2)[1]
 
                     deleteCFG(name)
+                } catch (e: Exception) {
+                    println("Invalid variable/value")
+                }
+            }
+            line.startsWith("packets") -> {
+                println()
+                try {
+                    val name = line.trim().split(" ".toRegex(), 2)[1]
+
+                    dwbSendPackets = name.toInt()
+			println("[x] dwbSendPackets: $dwbSendPackets")
                 } catch (e: Exception) {
                     println("Invalid variable/value")
                 }

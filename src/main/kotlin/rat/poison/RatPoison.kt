@@ -159,7 +159,7 @@ fun main() {
     if (dbg) { println("[DEBUG] Initializing Name Changer") }; nameChanger()
     if (dbg) { println("[DEBUG] Initializing Kill Sound") }; killSoundEsp()
     if (dbg) { println("[DEBUG] Initializing MusicKit Spoofer") }; musicKitSpoofer()
-    if (dbg) { println("[DEBUG] dwbSendPackets: $dwbSendPackets")}
+    println("[-] dwbSendPackets: $dwbSendPackets")
 
     //if (EXPERIMENTAL) {
         //rayTraceTest()
@@ -210,9 +210,8 @@ fun main() {
                 setBackBufferConfig(8, 8, 8, 8, 16, 0, curSettings["OPENGL_MSAA_SAMPLES"].toInt())
             })
         }
-    } else {
-        scanner()
     }
+	scanner() 
 }
 
 fun String.toLocale(): String {
