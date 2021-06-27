@@ -173,7 +173,7 @@ class ConfigsTab : Tab(false, false) {
     }
 
     fun updateCFGList() {
-        if (VisUI.isLoaded() && !saving && opened && !updatingRanks) {
+        if (VisUI.isLoaded() && !saving && opened) {
             configListAdapter.clear()
 
             File("$SETTINGS_DIRECTORY\\CFGS").listFiles()?.forEach {
@@ -186,7 +186,7 @@ class ConfigsTab : Tab(false, false) {
     }
 
     fun updateLocaleList() {
-        if (VisUI.isLoaded() && !saving && !updatingRanks) {
+        if (VisUI.isLoaded() && !saving) {
             localeListAdapter.clear()
 
             File("$SETTINGS_DIRECTORY\\Localizations").listFiles()?.forEach {
