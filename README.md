@@ -4,7 +4,6 @@ Based on [RatPoison 1.8.4.1](https://github.com/RatPoison-dev/RatPoison/tree/001
 
 * Fixes:
   * Box ESP crashing
-  * Skeleton ESP crashing
   * Dependencies updated to not error out
   * Nearest bone not working in appless
   * RCS always returning when ammo is depleted
@@ -15,4 +14,10 @@ Based on [RatPoison 1.8.4.1](https://github.com/RatPoison-dev/RatPoison/tree/001
   * Override dwbSendPackets offset by typing packets [value] in cmd window
   * Updated skins and music kits
   * Replaced installer with build.bat
+
+* Removed:
+  * Skeleton ESP (detected)
+  * Disable post processing (detected)
+  * Reduced flash (detected)
+  * Ranks tab (possibly detected)
 

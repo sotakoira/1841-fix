@@ -22,7 +22,6 @@ val mainTabbedPane = TabbedPane()
     var visualsTab = VisualsTab()
     var rcsTab = RcsTab()
     var miscTab = MiscTabs()
-    var ranksTab = RanksTab()
     var nadeHelperTab = NadeHelperTab()
     var skinChangerTab = SkinChangerTab()
     var optionsTab = OptionsTab()
@@ -67,7 +66,6 @@ class UIMenu : VisWindow("$TITLE $F_VERSION - [$M_VERSION $BRANCH] - $LOADED_CON
         mainTabbedPane.add(visualsTab)
         mainTabbedPane.add(rcsTab)
         mainTabbedPane.add(miscTab)
-        mainTabbedPane.add(ranksTab)
         mainTabbedPane.add(nadeHelperTab)
         mainTabbedPane.add(skinChangerTab)
         mainTabbedPane.add(optionsTab)
@@ -122,13 +120,6 @@ class UIMenu : VisWindow("$TITLE $F_VERSION - [$M_VERSION $BRANCH] - $LOADED_CON
                         changeWidth()
                         changeHeight()
                         mainTabbedPaneContent.add(miscTab.contentTable).growX()
-                    }
-                    ranksTab -> {
-                        wantedHeight = normHeight
-                        wantedWidth = normWidth
-                        changeWidth()
-                        changeHeight()
-                        mainTabbedPaneContent.add(ranksTab.contentTable).growX()
                     }
                     nadeHelperTab -> {
                         wantedHeight = normHeight

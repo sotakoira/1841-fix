@@ -46,7 +46,7 @@ data class sWeapon(var tSkinID: Int, var tStatTrak: Int, var tWear: Float, var t
 const val TITLE = "RatPoison"
 const val BRANCH = "Beta"
 const val F_VERSION = "1.8"
-const val M_VERSION = "1.8.4"
+const val M_VERSION = "1.8.4.1-fix"
 var LOADED_CONFIG = "DEFAULT"
 var oWeaponSize = oWeapon::class.java.declaredFields.size
 
@@ -108,7 +108,6 @@ fun main() {
         curSettings["SPREAD_CIRCLE"] = "false"
         curSettings["VISUALIZE_SMOKES"] = "false"
     } else {
-        if (dbg) { println("[DEBUG] Initializing Recoil Ranks") }; ranks()
 
         if (dbg) { println("[DEBUG] Initializing Recoil Spectator List") }; spectatorList()
         if (dbg) { println("[DEBUG] Initializing Recoil Bomb Timer") }; bombTimer()
@@ -135,13 +134,11 @@ fun main() {
     if (dbg) { println("[DEBUG] Initializing Set Aim") }; setAim()
     if (dbg) { println("[DEBUG] Initializing Bone Trigger") }; triggerBot()
     if (dbg) { println("[DEBUG] Initializing Auto Knife") }; autoKnife()
-    if (dbg) { println("[DEBUG] Initializing Reduced Flash") }; reducedFlash()
     if (dbg) { println("[DEBUG] Initializing ESPs") }; esp()
     if (dbg) { println("[DEBUG] Initializing Fast Stop") }; fastStop()
     if (dbg) { println("[DEBUG] Initializing Head Walk") }; headWalk()
     if (dbg) { println("[DEBUG] Initializing Adrenaline") }; adrenaline()
     if (dbg) { println("[DEBUG] Initializing FovChanger") }; fovChanger()
-    if (dbg) { println("[DEBUG] Disabling Post Processing") }; disablePostProcessing()
     if (dbg) { println("[DEBUG] Initializing Door Spam") }; doorSpam()
     if (dbg) { println("[DEBUG] Initializing Weapon Spam") }; weaponSpam()
     if (dbg) { println("[DEBUG] Initializing Weapon Changer") }; skinChanger()

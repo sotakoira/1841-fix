@@ -35,8 +35,6 @@ class OthersTab: Tab(false, false) {
     var doorSpamKey = VisBindTableCustom("Door Spam Key", "D_SPAM_KEY")
     val weaponSpam = VisCheckBoxCustom("Weapon Spam", "W_SPAM")
     var weaponSpamKey = VisBindTableCustom("Weapon Spam Key", "W_SPAM_KEY")
-    val enableReducedFlash = VisCheckBoxCustom("Reduced Flash", "ENABLE_REDUCED_FLASH")
-    val flashMaxAlpha = VisSliderCustom("Max Alpha", "FLASH_MAX_ALPHA", 5F, 255F, 5F, true)
     val hitSoundCheckBox = VisCheckBoxCustom("HitSound", "ENABLE_HITSOUND")
     val hitSoundBox = VisSelectBox<String>()
     val hitSoundVolume = VisSliderCustom("Volume", "HITSOUND_VOLUME", .1F, 1F, .1F, false)
@@ -48,7 +46,6 @@ class OthersTab: Tab(false, false) {
     val killBindKey = VisBindTableCustom("Key", "KILL_BIND_KEY")
     private val nameChangeInput = VisValidatableTextField()
     private val nameChange = VisTextButton("Name-Change".toLocale())
-    val postProcessingDisable = VisCheckBoxCustom("DISABLE_POST_PROCESSING".toLocale(), "DISABLE_POST_PROCESSING")
     val spectatorList = VisCheckBoxCustom("Spectator List", "SPECTATOR_LIST")
     val enableMusicKitSpoofer = VisCheckBoxCustom("Music Kit Spoofer", "MUSIC_KIT_SPOOFER")
     // me when the suggestions
@@ -60,14 +57,6 @@ class OthersTab: Tab(false, false) {
 
         musicKitArray.forEach {
             musicKitsAdapter.add(it.name)
-        }
-        postProcessingDisable.changed {_, _ ->
-            miscVisualsTab.nightMode.disable(postProcessingDisable.isChecked)
-            if (postProcessingDisable.isChecked) {
-                curSettings["ENABLE_NIGHTMODE"] = false
-                miscVisualsTab.nightMode.update()
-            }
-            true
         }
 
         val selected = musicKitArray.first { it.id == curSettings["MUSIC_KIT_ID"].toInt() }.name
@@ -90,11 +79,6 @@ class OthersTab: Tab(false, false) {
         table.add(killSound).left().row()
         table.add(killSoundVolume).left().row()
         table.addSeparator().row()
-
-
-        table.add(enableReducedFlash).left().row()
-        table.add(flashMaxAlpha).left().row()
-        table.addSeparator().row()
         table.add(doorSpam).left().row()
         table.add(doorSpamKey).left().row()
         table.addSeparator().row()
@@ -104,7 +88,6 @@ class OthersTab: Tab(false, false) {
         table.add(selfNade).left().row()
         table.add(enableKillBind).left().row()
         table.add(killBindKey).left().row()
-        table.add(postProcessingDisable).left().row()
         table.addSeparator().row()
         table.add(nameChangeInput).left().row()
         table.add(nameChange).left().padTop(2F).row()
@@ -201,8 +184,6 @@ fun othersTabUpdate() {
         doorSpamKey.update()
         weaponSpam.update()
         weaponSpamKey.update()
-        enableReducedFlash.update()
-        flashMaxAlpha.update()
         hitSoundCheckBox.update()
         hitSoundBox.selected = curSettings["HITSOUND_FILE_NAME"].replace("\"", "")
         hitSoundVolume.update()
@@ -212,7 +193,6 @@ fun othersTabUpdate() {
         selfNade.setText("Self-Nade".toLocale())
         killBindKey.update()
         enableKillBind.update()
-        postProcessingDisable.update()
         spectatorList.update()
         enableMusicKitSpoofer.update()
         updateHitSoundsList()

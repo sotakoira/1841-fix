@@ -19,7 +19,6 @@ fun esp() {
 	if (curSettings["MENU"].strToBool()) { //Temp until app fix
 		if (dbg) { println("[DEBUG] Initializing Indicator ESP") }; indicatorEsp()
 		if (dbg) { println("[DEBUG] Initializing Box ESP") }; boxEsp()
-		if (dbg) { println("[DEBUG] Initializing Skeleton ESP") }; skeletonEsp()
 		if (dbg) { println("[DEBUG] Initializing Snap Lines") }; snapLines()
 	}
 
