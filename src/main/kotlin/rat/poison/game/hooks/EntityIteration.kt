@@ -74,7 +74,7 @@ private var state by Delegates.observable(SignOnState.MAIN_MENU) { _, old, new -
 
             //Find correct tonemap values
 //        File("$SETTINGS_DIRECTORY\\Data\\ToneMaps.txt").forEachLine { line ->
-//            if (mapName.toLowerCase().contains(line.split(" : ")[0].toLowerCase())) {
+//            if (mapName.lowercase().contains(line.split(" : ")[0].toLowerCase())) {
 //                //this is working... not needed for now
 //            }
 //        }

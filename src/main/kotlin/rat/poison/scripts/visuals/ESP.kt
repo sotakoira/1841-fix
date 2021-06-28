@@ -85,7 +85,7 @@ fun Entity.hideOnRadar() {
 }
 
 fun String.toGlowNum(): Int {
-	return when(this.toUpperCase()) {
+	return when(this.uppercase()) {
 		"NORMAL" -> 0
 		"MODEL" -> 1
 		"VISIBLE" -> 2
