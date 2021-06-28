@@ -242,7 +242,7 @@ fun boxEsp() {
 			}
 
 			if (bEspName && isWeapon) {
-				addTextureOrText(assetManager, bEspUseIcons, it.type.name.replace("CWeapon", ""), "${it.type.name.replace("CWeapon", "").toUpperCase().toLocale()}\n", bEspNamePos)
+				addTextureOrText(assetManager, bEspUseIcons, it.type.name.replace("CWeapon", ""), "${it.type.name.replace("CWeapon", "").uppercase().toLocale()}\n", bEspNamePos)
 			}
 
 			if (bEspFlashed && isPlayer && entityMemory.flashed()) {
@@ -250,7 +250,7 @@ fun boxEsp() {
 			}
 
 			if (bEspWeapon && isPlayer) {
-				addTextureOrText(assetManager, bEspUseIcons, ent.weapon().name, "${ent.weapon().name.toUpperCase().toLocale()}\n", bEspWeaponPos)
+				addTextureOrText(assetManager, bEspUseIcons, ent.weapon().name, "${ent.weapon().name.uppercase().toLocale()}\n", bEspWeaponPos)
 			}
 
 			if (bEspKevlar && isPlayer && bEspUseIcons && !entityMemory.hasHelmet() && entityMemory.armor() > 0) {
@@ -489,7 +489,7 @@ fun transformVector(vec: Vector, array: Array<FloatArray>): Vector {
 }
 
 fun getWeaponTexture(assetManager: AssetManager, name: String): Texture {
-	val assetName = "$SETTINGS_DIRECTORY/Assets/Images/${name.toLowerCase()}.png"
+	val assetName = "$SETTINGS_DIRECTORY/Assets/Images/${name.lowercase()}.png"
 	return when (assetManager.contains(assetName)) {
 		true -> assetManager.get(assetName)
 		false -> assetManager.get("$SETTINGS_DIRECTORY/Assets/Images/knife.png")
