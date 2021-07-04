@@ -108,6 +108,7 @@ fun main() {
         curSettings["SPREAD_CIRCLE"] = "false"
         curSettings["VISUALIZE_SMOKES"] = "false"
     } else {
+        if (dbg) { println("[DEBUG] Initializing Recoil Ranks") }; ranks()
 
         if (dbg) { println("[DEBUG] Initializing Recoil Spectator List") }; spectatorList()
         if (dbg) { println("[DEBUG] Initializing Recoil Bomb Timer") }; bombTimer()
@@ -134,11 +135,13 @@ fun main() {
     if (dbg) { println("[DEBUG] Initializing Set Aim") }; setAim()
     if (dbg) { println("[DEBUG] Initializing Bone Trigger") }; triggerBot()
     if (dbg) { println("[DEBUG] Initializing Auto Knife") }; autoKnife()
+    if (dbg) { println("[DEBUG] Initializing Reduced Flash") }; reducedFlash()
     if (dbg) { println("[DEBUG] Initializing ESPs") }; esp()
     if (dbg) { println("[DEBUG] Initializing Fast Stop") }; fastStop()
     if (dbg) { println("[DEBUG] Initializing Head Walk") }; headWalk()
     if (dbg) { println("[DEBUG] Initializing Adrenaline") }; adrenaline()
     if (dbg) { println("[DEBUG] Initializing FovChanger") }; fovChanger()
+    if (dbg) { println("[DEBUG] Disabling Post Processing") }; disablePostProcessing()
     if (dbg) { println("[DEBUG] Initializing Door Spam") }; doorSpam()
     if (dbg) { println("[DEBUG] Initializing Weapon Spam") }; weaponSpam()
     if (dbg) { println("[DEBUG] Initializing Weapon Changer") }; skinChanger()

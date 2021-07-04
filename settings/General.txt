@@ -15,6 +15,9 @@ MENU_KEY = 45
 //Show tooltips
 MENU_TOOLTIPS = true
 
+//Disable detected features
+DISABLE_DETECTED_FEATURES = true
+
 //Default locale
 CURRENT_LOCALE = locale_en_US
 
@@ -37,6 +40,9 @@ APPLESS_Y = 100
 
 //Menu stays focused even when csgo isn't
 MENU_STAY_FOCUSED = false
+
+//Whether post processing is disabled or not
+DISABLE_POST_PROCESSING = false
 
 //The default overlay width and height, backup if width and height cannot be grabbed from MENU_APP
 OVERLAY_WIDTH = 1920

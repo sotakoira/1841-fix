@@ -36,7 +36,7 @@ fun footStepEsp() {
 
 fun runFootSteps() = App {
     if (!curSettings["ENABLE_ESP"].strToBool()) return@App
-
+    if (curSettings["DISABLE_DETECTED_FEATURES"].strToBool()) return@App
     if (!curSettings["ENABLE_FOOTSTEPS"].strToBool()) return@App
 
     for (i in footSteps.indices) {

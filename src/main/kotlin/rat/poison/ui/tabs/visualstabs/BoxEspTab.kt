@@ -16,6 +16,9 @@ class BoxEspTab: Tab(false, false) {
     private val table = VisTable()
 
     //Init labels/sliders/boxes that show values here
+    val skeletonEsp = VisCheckBoxCustom("Enable Skeleton", "SKELETON_ESP")
+    val showTeamSkeleton = VisCheckBoxCustom("Teammates", "SKELETON_SHOW_TEAM")
+    val showEnemiesSkeleton = VisCheckBoxCustom("Enemies", "SKELETON_SHOW_ENEMIES")
     val boxEspWeaponScale = VisSliderCustom("Weapons Scale", "BOX_ESP_WEAPON_SCALE", 0.8F, 3F, 0.1F, false, barWidth = 120F, labelWidth = 150F)
 
     val boxEsp = VisCheckBoxCustom("Bounding Box", "ENABLE_BOX_ESP")
@@ -68,6 +71,10 @@ class BoxEspTab: Tab(false, false) {
         table.padLeft(25F)
         table.padRight(25F)
 
+        table.add(skeletonEsp).left().row()
+        table.add(showTeamSkeleton).padRight(225F - showTeamSkeleton.width).left() //225
+        table.add(showEnemiesSkeleton).padRight(225F - showEnemiesSkeleton.width).left().row()//225
+        table.addSeparator().colspan(2)
         table.add(boxEsp).left().row()
         table.add(boxEspUseIcons).left().row()
         table.add(advancedBBox).left().row()
@@ -164,6 +171,9 @@ fun boxEspTabUpdate() {
         boxEspFlashed.update()
         boxEspFlashedPos.update()
         boxDetailColor.update()
+        skeletonEsp.update()
+        showTeamSkeleton.update()
+        showEnemiesSkeleton.update()
         boxEspWeaponScale.update()
         showTeamBox.update()
         showEnemiesBox.update()
@@ -201,6 +211,9 @@ fun boxEspTabDisable(bool: Boolean, col: Color) {
     boxEspTab.boxEspScopedPos.disable(bool, col)
     boxEspTab.boxEspFlashed.disable(bool)
     boxEspTab.boxEspFlashedPos.disable(bool, col)
+    boxEspTab.skeletonEsp.disable(bool)
+    boxEspTab.showTeamSkeleton.disable(bool)
+    boxEspTab.showEnemiesSkeleton.disable(bool)
     boxEspTab.showTeamBox.disable(bool)
     boxEspTab.showEnemiesBox.disable(bool)
     boxEspTab.showDefusers.disable(bool)

@@ -42,6 +42,7 @@ fun uiUpdate() {
     updateTrig()
     updateAim()
     updateDisableEsp()
+    disableDetectedUpdate()
     fontsTabUpdate()
     keybindsUpdate(null)
 
@@ -62,6 +63,7 @@ fun refreshMenu() {
     visualsTab = VisualsTab()
     rcsTab = RcsTab()
     miscTab = MiscTabs()
+    ranksTab = RanksTab()
     nadeHelperTab = NadeHelperTab()
     skinChangerTab = SkinChangerTab()
     optionsTab = OptionsTab()
@@ -72,6 +74,7 @@ fun refreshMenu() {
     mainTabbedPane.add(visualsTab)
     mainTabbedPane.add(rcsTab)
     mainTabbedPane.add(miscTab)
+    mainTabbedPane.add(ranksTab)
     mainTabbedPane.add(nadeHelperTab)
     mainTabbedPane.add(skinChangerTab)
     mainTabbedPane.add(optionsTab)
