@@ -725,3 +725,5 @@ Override = Override
 //Category: VisWindows names
 Bomb-Timer = Bomb Timer
 Spectator-List = Spectator List
+
+DISABLE_DETECTED_FEATURES = Disable known detected features

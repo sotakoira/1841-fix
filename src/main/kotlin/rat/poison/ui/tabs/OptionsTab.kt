@@ -2,6 +2,7 @@
 
 package rat.poison.ui.tabs
 
+import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.scenes.scene2d.ui.Table
 import com.kotcrab.vis.ui.VisUI
 import com.kotcrab.vis.ui.widget.LinkLabel
@@ -11,13 +12,16 @@ import rat.poison.curSettings
 import rat.poison.dbg
 import rat.poison.overlay.App.uiBombWindow
 import rat.poison.overlay.App.uiSpecList
+import rat.poison.overlay.opened
 import rat.poison.toLocale
 import rat.poison.ui.changed
 import rat.poison.ui.uiHelpers.VisCheckBoxCustom
 import rat.poison.ui.uiHelpers.VisSliderCustom
 import rat.poison.ui.uiHelpers.binds.VisBindTableCustom
 import rat.poison.ui.uiPanels.optionsTab
+import rat.poison.ui.uiPanels.visualsTab
 import rat.poison.ui.uiRefreshing
+import rat.poison.utils.generalUtil.strToBool
 
 class OptionsTab : Tab(false, false) {
     private val table = VisTable(true)
@@ -30,9 +34,9 @@ class OptionsTab : Tab(false, false) {
     val keybinds = VisCheckBoxCustom("Keybinds", "KEYBINDS")
     val blur = VisCheckBoxCustom("Menu Blur", "GAUSSIAN_BLUR")
     val overloadKeybinds = VisCheckBoxCustom("Overload Keybinds", "OVERLOAD_KEYBINDS")
+    val disableDetected = VisCheckBoxCustom("Disable known detected features", "DISABLE_DETECTED_FEATURES")
     private val discordLink = LinkLabel("Join-Discord".toLocale(), "https://dimden.dev/ratpoisonowns")
     private val configsLink = LinkLabel("Join-The-Giveaway".toLocale(), "https://ratpoison.dimden.dev/")
-
 
     init {
         debug.changed { _, _ ->
@@ -48,6 +52,10 @@ class OptionsTab : Tab(false, false) {
         table.add(keybinds).padLeft(25F).left().row()
         table.add(overloadKeybinds).padLeft(25F).left().row()
         table.add(blur).padLeft(25F).left().row()
+
+        table.addSeparator()
+
+        table.add(disableDetected).padLeft(25F).left().row()
 
         table.addSeparator()
 
@@ -73,6 +81,7 @@ fun updateWindows() {
     }
 }
 
+
 fun optionsTabUpdate() {
     if (uiRefreshing) return
 
@@ -85,6 +94,7 @@ fun optionsTabUpdate() {
         debug.update()
         keybinds.update()
         blur.update()
+        disableDetected.update()
     }
 
     updateWindows()

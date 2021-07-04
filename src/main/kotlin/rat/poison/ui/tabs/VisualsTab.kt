@@ -118,7 +118,9 @@ fun updateDisableEsp() {
         espTabbedPane.disableTab(nadesTab, bool)
         espTabbedPane.disableTab(miscVisualsTab, bool)
 
-        espTabbedPane.switchTab(recTab)
+        if (recTab != null) {
+            espTabbedPane.switchTab(recTab)
+        }
 
         glowEspTabDisable(bool)
         chamsEspTabDisable(bool, col)
@@ -137,6 +139,7 @@ fun updateDisableEsp() {
         }
     }
 }
+
 
 fun visualsTabUpdate() {
     visualsTab.apply {

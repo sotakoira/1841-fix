@@ -1,3 +1,4 @@
+[![Release](https://img.shields.io/github/release/sotakoira/1841-fix.svg)](https://github.com/sotakoira/1841-fix/releases/)
 [![Downloads](https://img.shields.io/github/downloads/sotakoira/1841-fix/total.svg)](https://github.com/sotakoira/1841-fix/releases/latest)
 
 Based on [RatPoison 1.8.4.1](https://github.com/RatPoison-dev/RatPoison/tree/00134613dbf472f87a0a01f6f42e518fb4b4f55a).
@@ -14,10 +15,7 @@ Based on [RatPoison 1.8.4.1](https://github.com/RatPoison-dev/RatPoison/tree/001
   * Override dwbSendPackets offset by typing packets [value] in cmd window
   * Updated skins and music kits
   * Replaced installer with build.bat
+  * [Detected features](https://github.com/sotakoira/1841-fix/discussions/3) toggle (ideally restart the cheat after toggling)
 
-* Removed:
-  * Skeleton ESP (detected)
-  * Disable post processing (detected)
-  * Reduced flash (detected)
-  * Ranks tab (possibly detected)
+
 
