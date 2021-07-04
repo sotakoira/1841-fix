@@ -34,7 +34,8 @@ object NetVarOffsets {
 	val hActiveWeapon by netVar("DT_BasePlayer", "m_hActiveWeapon")
 	val hMyWeapons by netVar("DT_BaseCombatCharacter", "m_hMyWeapons")
 	val nTickBase by netVar("DT_BasePlayer")
-	
+
+	val flFlashMaxAlpha by netVar("DT_CSPlayer")
 	val flFlashDuration by netVar("DT_CSPlayer", "m_flFlashDuration")
 
 	val bGunGameImmunity by netVar("DT_CSPlayer")
