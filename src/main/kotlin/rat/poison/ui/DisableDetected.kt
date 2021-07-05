@@ -2,7 +2,12 @@ package rat.poison.ui
 
 import com.badlogic.gdx.graphics.Color
 import rat.poison.curSettings
+import rat.poison.game.CSGO.csgoEXE
+import rat.poison.game.me
+import rat.poison.game.netvars.NetVarOffsets.flFlashMaxAlpha
+import rat.poison.game.offsets.ClientOffsets.bOverridePostProcesing
 import rat.poison.overlay.opened
+import rat.poison.scripts.visuals.disableAllEsp
 import rat.poison.ui.tabs.boxEspTab
 import rat.poison.ui.tabs.espTabbedPane
 import rat.poison.ui.tabs.footStepsEspTab
@@ -51,4 +56,20 @@ fun disableDetectedUpdate() {
         mainTabbedPane.disableTab(ranksTab, bool)
     }
 
+    optionsTab.disableDetected.changed { _, _ ->
+        disableAllEsp()
+        if (curSettings["DISABLE_POST_PROCESSING"].strToBool()) {
+            if (csgoEXE.boolean(bOverridePostProcesing)) {
+                csgoEXE[bOverridePostProcesing] = false
+            }
+        }
+        // kinda ghetto but who cares, you don't expect end user to spam the checkbox so
+        if (curSettings["ENABLE_REDUCED_FLASH"].strToBool()) {
+            if ((me > 0) && (csgoEXE.float(me + flFlashMaxAlpha) < 255F)) {
+                csgoEXE[me + flFlashMaxAlpha] = 255F
+            }
+        }
+    }
+
 }
+
