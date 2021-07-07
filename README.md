@@ -1,10 +1,13 @@
-[![Release](https://img.shields.io/github/release/sotakoira/1841-fix.svg)](https://github.com/sotakoira/1841-fix/releases/)
-[![Downloads](https://img.shields.io/github/downloads/sotakoira/1841-fix/total.svg)](https://github.com/sotakoira/1841-fix/releases/latest)
+[![Release](https://img.shields.io/github/release/sotakoira/1841-fix.svg)](https://github.com/sotakoira/1841-fix/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/sotakoira/1841-fix/total.svg)](https://github.com/sotakoira/1841-fix/releases)
 
 Based on [RatPoison 1.8.4.1](https://github.com/RatPoison-dev/RatPoison/tree/00134613dbf472f87a0a01f6f42e518fb4b4f55a).
 
 * Fixes:
   * Box ESP crashing
+  * Enum EntityType updated
+  * Aimbot + visuals not working due to glowAddress
+  * dwViewAngles signature
   * Dependencies updated to not error out
   * Nearest bone not working in appless
   * RCS always returning when ammo is depleted
