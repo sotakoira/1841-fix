@@ -22,7 +22,7 @@ import javax.script.ScriptException
 import kotlin.system.exitProcess
 
 fun scanner() {
-    println("Type help for options\n")
+    println("Type help for options")
 
     //Major optimization, needs to be fixed later, probably move this massive dump elsewhere
     val scanner = Scanner(System.`in`)
