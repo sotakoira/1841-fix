@@ -29,9 +29,7 @@ val mainTabbedPane = TabbedPane()
     var configsTab = ConfigsTab()
     var fontsTab = FontsTab()
 
-private var uid = randInt(2, 4999)
-
-class UIMenu : VisWindow("$TITLE $F_VERSION - [$M_VERSION $BRANCH] - $LOADED_CONFIG - UID: $uid") {
+class UIMenu : VisWindow("$TITLE $F_VERSION - [$M_VERSION $BRANCH] - $LOADED_CONFIG") {
     var wantedHeight = 600F
     var wantedWidth = 535F
     val normHeight = 600F //Fuck you too
@@ -263,7 +261,7 @@ class UIMenu : VisWindow("$TITLE $F_VERSION - [$M_VERSION $BRANCH] - $LOADED_CON
     }
 
     fun updateTitle() {
-        titleLabel.setText("$TITLE $F_VERSION - [$M_VERSION $BRANCH] - $LOADED_CONFIG - UID: $uid")
+        titleLabel.setText("$TITLE $F_VERSION - [$M_VERSION $BRANCH] - $LOADED_CONFIG")
     }
 }
 
