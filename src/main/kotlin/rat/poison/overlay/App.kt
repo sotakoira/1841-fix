@@ -57,7 +57,6 @@ var glowTime = 0L
 var appTime = 0L
 var menuTime = 0L
 var overlayTime = 0L
-var bspVisTime = 0L
 
 object App : ApplicationAdapter() {
     lateinit var sb: SpriteBatch
@@ -242,7 +241,6 @@ object App : ApplicationAdapter() {
                             sbText.append("\n   Menu took: ").append((menuTime.toFloat() * 0.000001F).roundNDecimals(4)).append(" ms")
                             sbText.append("\n   Apps took: ").append((appTime.toFloat() * 0.000001F).roundNDecimals(4)).append(" ms")
                             sbText.append("\n      Glow took: ").append((glowTime.toFloat() * 0.000001F).roundNDecimals(4)).append(" ms")
-                            //sbText.append("\n      Bsp Vis Check took: ").append((bspVisTime.toFloat() * 0.000001F).roundNDecimals(4)).append(" ms")
                             timer = 0
                         }
 

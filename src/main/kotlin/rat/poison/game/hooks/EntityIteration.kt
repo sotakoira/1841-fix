@@ -72,13 +72,6 @@ private var state by Delegates.observable(SignOnState.MAIN_MENU) { _, old, new -
                 //loadBsp("$gameDir\\$mapName")
             }
 
-            //Find correct tonemap values
-//        File("$SETTINGS_DIRECTORY\\Data\\ToneMaps.txt").forEachLine { line ->
-//            if (mapName.lowercase().contains(line.split(" : ")[0].toLowerCase())) {
-//                //this is working... not needed for now
-//            }
-//        }
-
             inGame = true
             nameChange = ""
 
