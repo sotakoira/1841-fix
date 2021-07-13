@@ -1,7 +1,7 @@
 @echo off
 title RatPoison Builder
 @ECHO OFF
-set PATH= %JAVA_HOME%\bin
+set PATH=%JAVA_HOME%\bin
 echo JAVA_HOME = %JAVA_HOME%
 echo PATH = %PATH%
 call gradlew RatPoison --warning-mode all
