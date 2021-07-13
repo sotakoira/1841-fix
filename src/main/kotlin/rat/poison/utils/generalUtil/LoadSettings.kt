@@ -3,6 +3,7 @@ package rat.poison.utils.generalUtil
 import rat.poison.*
 import rat.poison.utils.Settings
 import rat.poison.utils.saving
+import rat.poison.utils.vkKeycodeToString
 import java.io.File
 import java.io.FileReader
 import kotlin.text.Charsets.UTF_8
@@ -50,6 +51,7 @@ fun loadSettingsFromFiles(fileDir: String, specificFile: Boolean = false) {
     curSettings["OVERLOAD_KEYBINDS"] = overloadKeybinds
     settingsLoaded = true
     println("Settings loaded")
+    println("Menu Key: ${vkKeycodeToString(curSettings["MENU_KEY"].toInt())}")
 }
 
 fun loadLocale(fileDir: String) {
