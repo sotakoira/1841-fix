@@ -145,7 +145,7 @@ class OthersTab: Tab(false, false) {
         }
 
         enableReducedFlash.changed { _, _ ->
-            if (!enableReducedFlash.isChecked) {
+            if (!enableReducedFlash.isChecked && !enableReducedFlash.isDisabled) {
                 csgoEXE[me + flFlashMaxAlpha] = 255F
             }
         }
