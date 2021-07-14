@@ -7,6 +7,9 @@ import com.kotcrab.vis.ui.widget.tabbedpane.Tab
 import rat.poison.MUSIC_KITS_FILE
 import rat.poison.SETTINGS_DIRECTORY
 import rat.poison.curSettings
+import rat.poison.game.CSGO.csgoEXE
+import rat.poison.game.me
+import rat.poison.game.netvars.NetVarOffsets.flFlashMaxAlpha
 import rat.poison.overlay.opened
 import rat.poison.scripts.changeName
 import rat.poison.scripts.selfNade
@@ -139,6 +142,12 @@ class OthersTab: Tab(false, false) {
         hitSoundCheckBox.changed { _, _ ->
             curSettings["ENABLE_HITSOUND"] = hitSoundCheckBox.isChecked.boolToStr()
             true
+        }
+
+        enableReducedFlash.changed { _, _ ->
+            if (!enableReducedFlash.isChecked) {
+                csgoEXE[me + flFlashMaxAlpha] = 255F
+            }
         }
 
         enableMusicKitSpoofer.changed {_, _ ->
