@@ -301,7 +301,7 @@ VISUALS_TOGGLE_KEY = Visuals Toggle Key
 
 //Subcategory: Nightmode
 ENABLE_NIGHTMODE = Nightmode
-NIGHTMODE_VALUE = %
+NIGHTMODE_VALUE = x
 
 //Subcategory: Draw FOV
 DRAW_AIM_FOV_COLOR = Draw Aim FOV

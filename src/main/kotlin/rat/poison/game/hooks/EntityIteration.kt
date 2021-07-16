@@ -2,6 +2,7 @@ package rat.poison.game.hooks
 
 import com.sun.jna.Memory
 import com.sun.jna.platform.win32.WinNT
+import rat.poison.curSettings
 import rat.poison.dbg
 import rat.poison.game.*
 import rat.poison.game.CSGO.GLOW_OBJECT_SIZE
@@ -26,6 +27,7 @@ import rat.poison.scripts.sendPacket
 import rat.poison.settings.*
 import rat.poison.utils.every
 import rat.poison.utils.extensions.uint
+import rat.poison.utils.generalUtil.strToBool
 import rat.poison.utils.inGame
 import rat.poison.utils.shouldPostProcess
 import java.util.concurrent.atomic.AtomicLong
@@ -147,7 +149,7 @@ fun constructEntities() = every(500, continuous = true) {
         }
     }
 
-    val maxIndex = clientDLL.int(dwEntityList + 0x24) //Not right?
+    val maxIndex = if (curSettings["ENABLE_NIGHTMODE"].strToBool()) 1024 else clientDLL.int(dwEntityList + 0x24)
 
     for (i in 64..maxIndex) {
         val entity = clientDLL.uint(dwEntityList + (i * 0x10) - 0x10)

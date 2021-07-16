@@ -5,7 +5,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table
 import com.kotcrab.vis.ui.widget.VisTable
 import com.kotcrab.vis.ui.widget.tabbedpane.Tab
 import rat.poison.curSettings
+import rat.poison.game.CSGO.csgoEXE
+import rat.poison.game.hooks.toneMapController
+import rat.poison.game.netvars.NetVarOffsets.m_bUseCustomAutoExposureMax
+import rat.poison.game.netvars.NetVarOffsets.m_bUseCustomAutoExposureMin
 import rat.poison.toLocale
+import rat.poison.ui.changed
 import rat.poison.ui.tabs.miscVisualsTab
 import rat.poison.ui.uiHelpers.VisCheckBoxCustom
 import rat.poison.ui.uiHelpers.VisColorPickerCustom
@@ -20,7 +25,7 @@ class MiscVisualsTab : Tab(false, false) {
     val legitRadarDistance = VisSliderCustom("Distance", "LEGIT_RADAR_FOOTSTEPS_DISTANCE", 100F, 5000F, 100F, true)
 
     val nightMode = VisCheckBoxCustom("Nightmode/Fullbright", "ENABLE_NIGHTMODE")
-    val nightModeSlider = VisSliderCustom("%", "NIGHTMODE_VALUE", 0.05F, 5F, .05F, false)
+    val nightModeSlider = VisSliderCustom("x", "NIGHTMODE_VALUE", 0.05F, 5F, .05F, false)
 
     val visAdrenaline = VisCheckBoxCustom("Adrenaline", "ENABLE_ADRENALINE")
     val adrenalineStrength = VisSliderCustom("Adrenaline Strength", "ADRENALINE_STRENGTH", 0.01F, 1F, 0.01F, false)
@@ -99,6 +104,13 @@ class MiscVisualsTab : Tab(false, false) {
 
         table.add(tmpTable).left().row()
         table.add(headLevelDeadzone).row()
+
+        nightMode.changed { _, _ ->
+            if (!nightMode.isChecked) {
+                csgoEXE[toneMapController + m_bUseCustomAutoExposureMin] = 0
+                csgoEXE[toneMapController + m_bUseCustomAutoExposureMax] = 0
+            }
+        }
     }
 
     override fun getContentTable(): Table {
