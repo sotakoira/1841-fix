@@ -27,7 +27,7 @@ fun farRadar() = App {
     if (!inGame || !curSettings["BOX_FAR_RADAR"].strToBool() || meDead) return@App
 
     var dwRadar = clientDLL.int(dwRadarBase)
-    dwRadar = csgoEXE.int(dwRadar + 0x74)
+    dwRadar = csgoEXE.int(dwRadar + 0x78)
 
     forEntities(EntityType.CCSPlayer) { //This will probably require more prechecks
         val ent = it.entity
@@ -37,7 +37,7 @@ fun farRadar() = App {
 
         val entID = csgoEXE.int(ent + ClientOffsets.dwIndex)
 
-        val mem = csgoEXE.read(dwRadar + (0x174 * (entID + 1)) - 0x3C, 237) ?: return@forEntities
+        val mem = csgoEXE.read(dwRadar + (0x174 * (entID + 2)) - 0x3C, 237) ?: return@forEntities
 
         val pos = Vector(mem.getFloat(0), mem.getFloat(4), mem.getFloat(8))
         val health = mem.getInt(0x50)
