@@ -204,7 +204,7 @@ object App : ApplicationAdapter() {
                         glFinish()
                     }, TimeUnit.NANOSECONDS)
 
-                    if (curSettings["DEBUG"].strToBool()) { //Draw Debug
+                    if (curSettings["DEBUG"].strToBool() && !curSettings["DISABLE_DETECTED_FEATURES"].strToBool()) {//Draw Debug
                         //Limit updates
                         if (timer >= curSettings["OPENGL_FPS"].toInt()/4) {
                             val runtime = Runtime.getRuntime()

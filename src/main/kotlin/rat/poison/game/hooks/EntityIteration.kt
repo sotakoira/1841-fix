@@ -25,6 +25,7 @@ import rat.poison.scripts.detectMap
 import rat.poison.scripts.nameChange
 import rat.poison.scripts.sendPacket
 import rat.poison.settings.*
+import rat.poison.utils.beenFlashed
 import rat.poison.utils.every
 import rat.poison.utils.extensions.uint
 import rat.poison.utils.generalUtil.strToBool
@@ -75,6 +76,7 @@ private var state by Delegates.observable(SignOnState.MAIN_MENU) { _, old, new -
             }
 
             inGame = true
+            beenFlashed = false
             nameChange = ""
 
             if (PROCESS_ACCESS_FLAGS and WinNT.PROCESS_VM_OPERATION > 0) {

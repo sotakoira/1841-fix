@@ -122,7 +122,7 @@ fun updateDisableEsp() {
             espTabbedPane.switchTab(recTab)
         }
 
-        glowEspTabDisable(bool)
+        glowEspTabDisable(bool, col)
         chamsEspTabDisable(bool, col)
         indicatorEspTabDisable(bool, col)
         boxEspTabDisable(bool, col)

@@ -12,7 +12,7 @@ import rat.poison.scripts.aim.meCurWep
 import rat.poison.utils.generalUtil.strToBool
 
 fun drawDebug() = App {
-    if (!curSettings["DEBUG"].strToBool()) return@App
+    if (!curSettings["DEBUG"].strToBool() || curSettings["DISABLE_DETECTED_FEATURES"].strToBool()) return@App
 
     val txtString = StringBuilder()
 

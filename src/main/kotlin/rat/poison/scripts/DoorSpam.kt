@@ -11,7 +11,7 @@ import rat.poison.utils.generalUtil.strToBool
 import rat.poison.utils.keyPressed
 
 fun doorSpam() = every(20, inGameCheck = true) {
-    if (!curSettings["D_SPAM"].strToBool() || meDead) return@every
+    if (!curSettings["D_SPAM"].strToBool() || curSettings["DISABLE_DETECTED_FEATURES"].strToBool() || meDead) return@every
 
     updateCursorEnable()
     if (cursorEnable) return@every

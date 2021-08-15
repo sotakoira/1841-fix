@@ -2,10 +2,11 @@ package rat.poison.ui
 
 import com.badlogic.gdx.graphics.Color
 import rat.poison.curSettings
+import rat.poison.dbg
 import rat.poison.game.CSGO.csgoEXE
 import rat.poison.game.me
 import rat.poison.game.netvars.NetVarOffsets.flFlashMaxAlpha
-import rat.poison.game.offsets.ClientOffsets.bOverridePostProcesing
+import rat.poison.game.offsets.ClientOffsets.bOverridePostProcessing
 import rat.poison.overlay.opened
 import rat.poison.scripts.visuals.disableAllEsp
 import rat.poison.ui.tabs.*
@@ -13,6 +14,7 @@ import rat.poison.ui.uiPanels.mainTabbedPane
 import rat.poison.ui.uiPanels.optionsTab
 import rat.poison.ui.uiPanels.ranksTab
 import rat.poison.ui.uiPanels.visualsTab
+import rat.poison.utils.beenFlashed
 import rat.poison.utils.generalUtil.strToBool
 
 fun disableDetectedUpdate() {
@@ -79,10 +81,38 @@ fun disableDetectedUpdate() {
         }
     }
     othersTab.apply {
+        othersTab.hitSoundCheckBox.disable(bool)
+        othersTab.hitSoundVolume.disable(bool, col)
+        othersTab.hitSoundBox.isDisabled = bool
+
+        othersTab.killSoundCheckBox.disable(bool)
+        othersTab.killSoundVolume.disable(bool, col)
+        othersTab.killSoundBox.isDisabled = bool
+
         othersTab.enableReducedFlash.disable(bool)
         othersTab.flashMaxAlpha.disable(bool, col)
+
+        othersTab.doorSpam.disable(bool)
+        othersTab.doorSpamKey.disable(bool, col)
+
+        othersTab.weaponSpam.disable(bool)
+        othersTab.weaponSpamKey.disable(bool, col)
+
+        othersTab.enableKillBind.disable(bool)
+        othersTab.killBindKey.disable(bool, col)
+
         othersTab.postProcessingDisable.disable(bool)
+
+
     }
+
+    optionsTab.apply {
+
+     optionsTab.debug.disable(bool)
+     dbg = !bool
+
+    }
+
     mainTabbedPane.apply {
         mainTabbedPane.disableTab(ranksTab, bool)
     }
@@ -90,14 +120,15 @@ fun disableDetectedUpdate() {
     optionsTab.disableDetected.changed { _, _ ->
         disableAllEsp()
         if (curSettings["DISABLE_POST_PROCESSING"].strToBool()) {
-            if (csgoEXE.boolean(bOverridePostProcesing)) {
-                csgoEXE[bOverridePostProcesing] = false
+            if (csgoEXE.boolean(bOverridePostProcessing)) {
+                csgoEXE[bOverridePostProcessing] = false
             }
         }
-        // kinda ghetto but who cares, you don't expect end user to spam the checkbox so
-        if (curSettings["ENABLE_REDUCED_FLASH"].strToBool()) {
+
+        if (beenFlashed) {
             if ((me > 0) && (csgoEXE.float(me + flFlashMaxAlpha) < 255F)) {
                 csgoEXE[me + flFlashMaxAlpha] = 255F
+                beenFlashed = false
             }
         }
     }

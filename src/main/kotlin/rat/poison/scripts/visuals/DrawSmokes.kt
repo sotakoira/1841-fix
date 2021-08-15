@@ -53,7 +53,7 @@ fun drawSmokes() = App {
             }
         }
 
-        if (curSettings["DEBUG"].strToBool()) {
+        if (curSettings["DEBUG"].strToBool() && !curSettings["DISABLE_DETECTED_FEATURES"].strToBool()) {
             val mePos = me.position()
             val meDir = me.direction()
             val maxPos = Vector(mePos.x + 500 * meDir.x, mePos.y + 500 * meDir.y, mePos.z)

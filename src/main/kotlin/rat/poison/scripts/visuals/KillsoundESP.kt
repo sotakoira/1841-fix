@@ -19,7 +19,7 @@ private var totalKills = when (inGame) {
 private var opened = false
 
 fun killSoundEsp() = every(50, inGameCheck = true) {
-    if (!curSettings["ENABLE_KILLSOUND"].strToBool() || meDead || me < 0 || !curSettings["ENABLE_ESP"].strToBool()) return@every
+    if (!curSettings["ENABLE_KILLSOUND"].strToBool() || curSettings["DISABLE_DETECTED_FEATURES"].strToBool() || meDead || me < 0 || !curSettings["MENU"].strToBool()) return@every
     val curKills = me.kills()
     if (!opened) {
         try {

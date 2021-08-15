@@ -74,7 +74,7 @@ fun main() {
 
     detectLocale()
 
-    dbg = curSettings["DEBUG"].strToBool()
+    dbg = (curSettings["DEBUG"].strToBool() && !curSettings["DISABLE_DETECTED_FEATURES"].strToBool())
     appless = curSettings["APPLESS"].strToBool()
     if (dbg) println("DEBUG enabled")
 

@@ -15,7 +15,7 @@ private var toggled = false
 var weaponSpamToggleKey = ObservableBoolean({keyPressed(curSettings["W_SPAM_KEY"].toInt())})
 
 fun weaponSpam() = every (20, inGameCheck = true) {
-    if (!curSettings["W_SPAM"].strToBool()) return@every
+    if (!curSettings["W_SPAM"].strToBool() || curSettings["DISABLE_DETECTED_FEATURES"].strToBool()) return@every
 
     updateCursorEnable()
     if (cursorEnable || meDead) return@every
