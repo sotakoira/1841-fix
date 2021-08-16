@@ -53,7 +53,7 @@ dependencies {
 	implementation group: 'org.jetbrains.kotlin', name: 'kotlin-script-util', version: kotlin_version
 	implementation group: 'org.jetbrains.kotlin', name: 'kotlin-compiler-embeddable', version: kotlin_version
 
-	implementation group: 'commons-io', name: 'commons-io', version: '2.10.0'
+	implementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
 	implementation 'com.github.ata4:ioutils:b1f26588b5'
 	implementation group: 'it.unimi.dsi', name: 'fastutil', version: '8.5.4'
 }
