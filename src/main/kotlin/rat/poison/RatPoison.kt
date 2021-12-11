@@ -180,7 +180,7 @@ fun main() {
                 var w = CSGO.gameWidth
                 var h = CSGO.gameHeight
 
-                if ((w == 0 || h == 0) || curSettings["MENU_APP"] != "\"Counter-Strike: Global Offensive\"") {
+                if ((w == 0 || h == 0) || curSettings["MENU_APP"] != "\"Counter-Strike: Global Offensive - Direct3D 9\"") {
                     w = curSettings["OVERLAY_WIDTH"].toInt()
                     h = curSettings["OVERLAY_HEIGHT"].toInt()
                 }

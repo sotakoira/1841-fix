@@ -164,7 +164,7 @@ class Overlay(private val targetAppTitle: String, private val myAppTitle: String
 					}
 				} else {
 					if (isMyWindowVisible) {
-						if (curSettings["MENU_APP"].replace("\"", "") == "Counter-Strike: Global Offensive") {
+						if (curSettings["MENU_APP"].replace("\"", "") == "Counter-Strike: Global Offensive - Direct3D 9") {
 							if (!curSettings["MENU_STAY_FOCUSED"].strToBool()) {
 								ShowWindow(myHWND, WinUser.SW_HIDE)
 								listener?.onBackground(this@Overlay)

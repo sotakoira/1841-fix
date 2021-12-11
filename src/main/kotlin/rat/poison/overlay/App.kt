@@ -63,7 +63,7 @@ object App : ApplicationAdapter() {
     lateinit var textRenderer: BitmapFont
     lateinit var shapeRenderer: ShapeRenderer
     private val overlay = Overlay(if (appless) {
-        "Counter-Strike: Global Offensive"
+        "Counter-Strike: Global Offensive - Direct3D 9"
     } else {
         curSettings["MENU_APP"].replace("\"", "")
     }, "Rat Poison UI", AccentStates.ACCENT_ENABLE_BLURBEHIND)

@@ -78,7 +78,7 @@ object CSGO {
 		initialized = true
 
 		val rect = WinDef.RECT()
-		val hwd = CUser32.FindWindowA(null, "Counter-Strike: Global Offensive")
+		val hwd = CUser32.FindWindowA(null, "Counter-Strike: Global Offensive - Direct3D 9")
 
 		//Get initially
 		if (!CUser32.GetClientRect(hwd, rect)) exitProcess(2)
